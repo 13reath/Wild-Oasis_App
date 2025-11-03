@@ -82,7 +82,7 @@ export default function CreateCabinForm() {
                         required: 'This field is required',
                         validate: (value) =>
                             value <= getValues().regularPrice ||
-                            'Discount must be less than regular price',
+                            'Discount should be less than regular price',
                     })}
                 />
             </FormRow>
@@ -100,7 +100,13 @@ export default function CreateCabinForm() {
             </FormRow>
 
             <FormRow label="Image">
-                <FileInput id="image" accept="image/*" />
+                <FileInput
+                    id="image"
+                    accept="image/*"
+                    {...register('image', {
+                        required: 'This field is required',
+                    })}
+                />
             </FormRow>
 
             <FormRow>
